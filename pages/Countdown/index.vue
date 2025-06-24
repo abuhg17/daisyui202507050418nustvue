@@ -77,7 +77,12 @@
         >
           <div class="card-body items-center text-center">
             <h2 class="card-title text-xl">
-              <a href="" target="_blank" rel="noopener noreferrer">manus</a>
+              <a
+                href="https://manus.im/share/2auIPkvMmOKpSpe5D4kv0R?replay=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                >manus</a
+              >
             </h2>
           </div>
         </div>
