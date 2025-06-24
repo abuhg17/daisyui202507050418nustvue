@@ -32,7 +32,7 @@
         >
           <div class="card-body items-center text-center">
             <h2 class="card-title text-xl">🟢 中壢相對安全</h2>
-            <p>2025紫微聖人加持</p>
+            <p>2025紫微聖人加持(神仙思維)</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,11 @@
         <p class="text-lg leading-relaxed text-pink-200">
           ☄️下元甲子:至2043<br />
           ☄️三界六道抓交替<br />
-          ☄️考核標準:人心
+          ☄️考核標準:人心<br />
+          ☄️1923:1%人口(基準點)<br />
+          ☄️2025:?%人口(上界如何看待下界的衡量點)
+          <br />☄️1999:0.5%人口(基準點)<br />
+          ☄️2025:?%人口(上界如何看待下界的衡量點)
         </p>
       </div>
 
