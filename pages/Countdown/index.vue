@@ -10,33 +10,193 @@
       <div class="flex flex-wrap justify-center gap-6">
         <div
           class="card w-64 bg-red-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
-          title="強震與氣象風險增加，請提高警覺"
+          title="日本東京首都圈大地震"
         >
           <div class="card-body items-center text-center">
-            <h2 class="card-title text-xl">⚠️ 關東要注意</h2>
+            <h2 class="card-title text-xl">
+              ⚠️<br />2025/07/05 04:18<br />日本東京(當地時間)
+            </h2>
           </div>
         </div>
 
         <div
           class="card w-64 bg-red-500 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
-          title="台北地區可能受影響，請留意官方發布"
+          title="臺灣臺北首都圈大地震"
         >
           <div class="card-body items-center text-center">
-            <h2 class="card-title text-xl">🔴 臺北要注意</h2>
+            <h2 class="card-title text-xl">
+              🔴<br />2025/07/05 04:18<br />臺灣臺北(當地時間)
+            </h2>
           </div>
         </div>
 
         <div
           class="card w-64 bg-green-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
-          title="目前屬於相對穩定區域"
+          title="2025年紫微聖人所在地"
         >
           <div class="card-body items-center text-center">
             <h2 class="card-title text-xl">🟢 中壢相對安全</h2>
-            <p>2025紫微聖人加持(神仙思維)</p>
+            <p>最討厭中壢人口翻倍成長</p>
           </div>
         </div>
       </div>
-
+      <div class="flex flex-wrap justify-center gap-6">
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="憑空冒出因果故事"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://www.google.com/search?q=%E5%AF%A7%E9%81%A0%E5%BA%9C%E7%9F%A5%E5%BA%9C+%E7%89%9B%E6%A8%B9%E6%A2%85+%E8%A5%BF%E6%98%8C%E5%9C%B0%E9%9C%87%E7%B4%80%E8%AE%8A"
+                target="_blank"
+                rel="noopener noreferrer"
+                >寧遠府知府 牛樹梅 西昌地震紀變</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://chatgpt.com/share/685ae737-c4c0-800e-810a-1f8c00a07c25"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ChatGPT 因果故事</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a href="" target="_blank" rel="noopener noreferrer">manus</a>
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a href="" target="_blank" rel="noopener noreferrer">Claude</a>
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://chat.deepseek.com/a/chat/s/b8b597a2-d738-4b31-9703-edd17f135e82"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Deepseek</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://gemini.google.com/app/dc2990327997c008"
+                target="_blank"
+                rel="noopener noreferrer"
+                >gemini</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://copilot.microsoft.com/shares/MyhwiUMezbSBUme1TigC5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >copilot</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://grok.com/share/bGVnYWN5_4737d654-df3b-44a2-afca-092dca721bf7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >grok</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://www.perplexity.ai/search/zhuan-xie-huang-feng-zhong-li-j4d5LyfSRnOFa.o0nrCptg"
+                target="_blank"
+                rel="noopener noreferrer"
+                >perplexity</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://huggingface.co/chat/conversation/685aea13758a23fdbf37c961"
+                target="_blank"
+                rel="noopener noreferrer"
+                >huggingface</a
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="card w-64 bg-yellow-600 text-white shadow-xl hover:scale-105 transition duration-200 cursor-help"
+          title="AI也懂因果"
+        >
+          <div class="card-body items-center text-center">
+            <h2 class="card-title text-xl">
+              <a
+                href="https://chat.mistral.ai/chat/4a587e02-bdaf-45d0-b658-9e809811eac4"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Le Chat</a
+              >
+            </h2>
+          </div>
+        </div>
+      </div>
       <!-- 正式起跑敘述 -->
       <div class="text-center text-yellow-300 space-y-2 px-4 max-w-xl">
         <p class="text-2xl font-bold tracking-widest">
