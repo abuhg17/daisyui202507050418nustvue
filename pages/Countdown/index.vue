@@ -1,4 +1,7 @@
 <template>
+  <h1>This is Countdown Page.</h1>
+  <h2>First, fetch /api/countdown/202507050418 once.</h2>
+  <h2>Second, setInterval every one sec.</h2>
   <div
     class="flex justify-center items-center min-h-screen bg-gradient-to-r from-red-800 via-black to-indigo-900 p-6"
   >

@@ -1,7 +1,9 @@
 <template>
   <nav class="bg-base-100 shadow-sm p-3">
     <div class="flex justify-between items-center">
-      <h1 class="text-xl font-bold">This is Nav.</h1>
+      <h1 class="text-xl font-bold">
+        This is Nav. 🔢Nust(Vue)🔢daisyUI(Tailwind)
+      </h1>
 
       <!-- 漢堡按鈕 (手機可見，中型以上隱藏) -->
       <button
