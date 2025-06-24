@@ -87,7 +87,12 @@
         >
           <div class="card-body items-center text-center">
             <h2 class="card-title text-xl">
-              <a href="" target="_blank" rel="noopener noreferrer">Claude</a>
+              <a
+                href="https://claude.ai/public/artifacts/411073ac-b180-4a9d-b678-49df795f9965"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Claude</a
+              >
             </h2>
           </div>
         </div>
