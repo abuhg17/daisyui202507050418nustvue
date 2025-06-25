@@ -42,7 +42,9 @@
                 rel="noopener noreferrer"
               >
                 <img
-                  :src="bilibili.owner.face"
+                  :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
+                    bilibili.owner.face
+                  )}`"
                   :alt="bilibili.owner.name"
                   :title="bilibili.owner.name"
                   width="100px"
