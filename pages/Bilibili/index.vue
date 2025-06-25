@@ -57,7 +57,9 @@
                 rel="noopener noreferrer"
               >
                 <img
-                  :src="bilibili.pic"
+                  :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
+                    bilibili.pic
+                  )}`"
                   :alt="bilibili.title"
                   :title="bilibili.title"
                   width="100px"
@@ -68,7 +70,9 @@
             <td>
               <img
                 v-show="bilibili.pages[0].first_frame"
-                :src="bilibili.pages[0].first_frame"
+                :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
+                  bilibili.pages[0].first_frame
+                )}`"
                 width="100px"
                 height="auto"
               />

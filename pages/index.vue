@@ -27,4 +27,11 @@
       >/api/bilibili/1111</a
     >
   </h3>
+  <h3>
+    <a
+      href="/api/bilibili/proxyimg?url=http://i1.hdslb.com/bfs/archive/b168c77ff9d280b3d9f7f8a134ddc9df9c953ec9.jpg"
+      class="btn btn-ghost text-xl"
+      >/api/bilibili/proxyimg?url=http://i1.hdslb.com/bfs/archive/b168c77ff9d280b3d9f7f8a134ddc9df9c953ec9.jpg</a
+    >
+  </h3>
 </template>
