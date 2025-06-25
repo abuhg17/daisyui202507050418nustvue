@@ -91,6 +91,22 @@
       </tbody>
     </table>
   </div>
+  <div v-if="isLoading">
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 </template>
 <script setup>
 const arrs = [
@@ -164,6 +180,8 @@ const arrs = [
   "BV1hrKVzWEsP",
   "BV1SAMtzYE3M",
   "BV1S6MAzwEY5",
+  "BV18V4y1j7ja",
+  "BV13W4y1U7NP",
 ];
 const bilibilis = ref([]);
 const isLoading = ref(true);
