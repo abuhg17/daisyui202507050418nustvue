@@ -35,6 +35,7 @@
       </thead>
       <tbody>
         <tr v-for="(bilibili, idx) in bilibilis">
+          {{}}
           <th>{{ idx + 1 }}</th>
           <td>
             <a
@@ -109,6 +110,60 @@ const arrs = [
   "BV1XXNiznE4X",
   "BV1pSLgz9EnQ",
   "BV13j421o7mz",
+  "BV1ZS4y1R7q9",
+  "BV1Ur4y1r72B",
+  "BV15y421B7FC",
+  "BV1ytKHzNEDo",
+  "BV1esKuzUEkG",
+  "BV1qEVazqEv3",
+  "BV1ogJhz1EbJ",
+  "BV1i3MLzzEjY",
+  "BV1PsT2zME58",
+  "BV1dTRrYDEqJ",
+  "BV11cdcY4EbG",
+  "BV11TJ8zZEUR",
+  "BV1yQfWYaEVo",
+  "BV1ivM8zJEUg",
+  "BV1y8KWzrEsx",
+  "BV1ud4y1Q7Dd",
+  "BV1rBdmYmEHk",
+  "BV1R5N9zgE1t",
+  "BV1QdfnYwEFc",
+  "BV1AGfWYFEaY",
+  "BV1TtKVe9EHH",
+  "BV1DFfWYTEz3",
+  "BV1FqfnYLE1v",
+  "BV1K2jnz8E8Q",
+  "BV1cvfpYsEiJ",
+  "BV12BNdzaEo1",
+  "BV1Fv4y1g7Cc",
+  "BV1qTTTzjE5T",
+  "BV1qaTdzWELF",
+  "BV1UeK8zAEgM",
+  "BV1DaMyzmEgc",
+  "BV1ACTezqEZ9",
+  "BV1HsTyz8EBL",
+  "BV1HBMmz3Ehp",
+  "BV1dQKGzoEVA",
+  "BV1aFK4zfEjT",
+  "BV1o2KgzpEuv",
+  "BV1mGK7zfEqT",
+  "BV1egTzzeEu4",
+  "BV1BBKJzSEaM",
+  "BV1CUMHzBE3L",
+  "BV11KK3zzEL1",
+  "BV1c6KGzKEk2",
+  "BV1YgM3z9EJ3",
+  "BV1zEKuzXENd",
+  "BV1eTKYzEE2g",
+  "BV1JhMEzWEFQ",
+  "BV1bqMczxEoG",
+  "BV1jsMAzGE2a",
+  "BV1AYNLzyErV",
+  "BV16PMSzGETR",
+  "BV1hrKVzWEsP",
+  "BV1SAMtzYE3M",
+  "BV1S6MAzwEY5",
 ];
 const bilibilis = ref([]);
 const isLoading = ref(true);
@@ -118,6 +173,7 @@ onMounted(async () => {
     if (data.value) {
       bilibilis.value.push(data.value);
     }
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // 每秒一筆
   }
   isLoading.value = false;
 });
