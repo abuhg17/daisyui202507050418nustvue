@@ -66,6 +66,9 @@
       <NuxtLink to="/firebasefood" class="btn btn-ghost text-xl"
         >FirebaseFood page</NuxtLink
       >
+      <NuxtLink to="/youtube" class="btn btn-ghost text-xl"
+        >Youtube page</NuxtLink
+      >
     </div>
   </nav>
 </template>

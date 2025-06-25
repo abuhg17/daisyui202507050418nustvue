@@ -1,5 +1,5 @@
 <template>
-  <h1>Bilibili Page</h1>
+  <h1>Youtube Page</h1>
   <div v-if="isLoading">
     <div class="lds-facebook">
       <div></div>
@@ -41,158 +41,35 @@
       <thead>
         <tr>
           <th></th>
-          <th>owner</th>
-          <th>bvid pic</th>
-          <th>first_frame</th>
-          <th>view</th>
-          <th>danmaku</th>
-          <th>like</th>
-          <th>coin</th>
-          <th>favorite</th>
-          <th>share</th>
+          <th>channelTitle</th>
+          <th>thumbnails</th>
+          <th>viewCount</th>
+          <th>likeCount</th>
+          <th>publishedAt</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(bilibili, idx) in bilibilis">
-          {{}}
+        <tr v-for="(youtube, idx) in youtubes">
           <td>{{ idx + 1 }}</td>
-          <td>
-            <a
-              :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                  bilibili.owner.face
-                )}`"
-                :alt="bilibili.owner.name"
-                :title="bilibili.owner.name"
-                width="100px"
-                height="auto"
-              />
-            </a>
-          </td>
-          <td>
-            <a
-              :href="`https://www.bilibili.com/video/${bilibili.data.bvid}`"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                  bilibili.pic
-                )}`"
-                :alt="bilibili.title"
-                :title="bilibili.title"
-                width="100px"
-                height="auto"
-              />
-            </a>
-          </td>
-          <td>
-            <img
-              v-show="bilibili.pages[0].first_frame"
-              :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                bilibili.pages[0].first_frame
-              )}`"
-              width="100px"
-              height="auto"
-            />
-          </td>
-          <td>{{ bilibili.stat.view.toLocaleString() }}</td>
-          <td>{{ bilibili.stat.danmaku.toLocaleString() }}</td>
-          <td>{{ bilibili.stat.like.toLocaleString() }}</td>
-          <td>{{ bilibili.stat.coin.toLocaleString() }}</td>
-          <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
-          <td>{{ bilibili.stat.share.toLocaleString() }}</td>
+          <td>{{ youtube.snippet.title }}</td>
+          <td>{{ youtube.snippet.thumbnails.standard }}</td>
+          <td>{{ youtube.statistics.viewCount }}</td>
+          <td>{{ youtube.statistics.likeCount }}</td>
+          <td>{{ youtube.snippet.publishedAt }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 <script setup>
-const arrs = [
-  "BV1iZLJzuE6S",
-  "BV1BELHzyEMi",
-  "BV1Et4y1r7Eu",
-  "BV1rSNvzeEPt",
-  "BV1RkT2zREai",
-  "BV1JtNXzkEFN",
-  "BV1ogJhz1EbJ",
-  "BV1VpTpzHEcT",
-  "BV1PpZ2YoEtU",
-  "BV1WiNkz4EZM",
-  "BV1a5E1zLE2u",
-  "BV1WmCpYHE5C",
-  "BV1M6NBeZEVu",
-  "BV1XXNiznE4X",
-  "BV1pSLgz9EnQ",
-  "BV13j421o7mz",
-  "BV1ZS4y1R7q9",
-  "BV1Ur4y1r72B",
-  "BV15y421B7FC",
-  "BV1ytKHzNEDo",
-  "BV1esKuzUEkG",
-  "BV1qEVazqEv3",
-  "BV1ogJhz1EbJ",
-  "BV1i3MLzzEjY",
-  "BV1PsT2zME58",
-  "BV1dTRrYDEqJ",
-  "BV11cdcY4EbG",
-  "BV11TJ8zZEUR",
-  "BV1yQfWYaEVo",
-  "BV1ivM8zJEUg",
-  "BV1y8KWzrEsx",
-  "BV1ud4y1Q7Dd",
-  "BV1rBdmYmEHk",
-  "BV1R5N9zgE1t",
-  "BV1QdfnYwEFc",
-  "BV1AGfWYFEaY",
-  "BV1TtKVe9EHH",
-  "BV1DFfWYTEz3",
-  "BV1FqfnYLE1v",
-  "BV1K2jnz8E8Q",
-  "BV1cvfpYsEiJ",
-  "BV12BNdzaEo1",
-  "BV1Fv4y1g7Cc",
-  "BV1qTTTzjE5T",
-  "BV1qaTdzWELF",
-  "BV1UeK8zAEgM",
-  "BV1DaMyzmEgc",
-  "BV1ACTezqEZ9",
-  "BV1HsTyz8EBL",
-  "BV1HBMmz3Ehp",
-  "BV1dQKGzoEVA",
-  "BV1aFK4zfEjT",
-  "BV1o2KgzpEuv",
-  "BV1mGK7zfEqT",
-  "BV1egTzzeEu4",
-  "BV1BBKJzSEaM",
-  "BV1CUMHzBE3L",
-  "BV11KK3zzEL1",
-  "BV1c6KGzKEk2",
-  "BV1YgM3z9EJ3",
-  "BV1zEKuzXENd",
-  "BV1eTKYzEE2g",
-  "BV1JhMEzWEFQ",
-  "BV1bqMczxEoG",
-  "BV1jsMAzGE2a",
-  "BV1AYNLzyErV",
-  "BV16PMSzGETR",
-  "BV1hrKVzWEsP",
-  "BV1SAMtzYE3M",
-  "BV1S6MAzwEY5",
-  "BV18V4y1j7ja",
-  "BV13W4y1U7NP",
-];
-const bilibilis = ref([]);
+const arrs = ["WS3sGVgkOZk", "KqKVBSHtCJU", "5zcqr8dxgGw"];
+const youtubes = ref([]);
 const isLoading = ref(true);
 onMounted(async () => {
   for (const arr of arrs) {
-    const { data } = await useFetch(`/api/bilibili/${arr}`);
+    const { data } = await useFetch(`/api/youtube/${arr}`);
     if (data.value) {
-      bilibilis.value.push(data.value);
+      youtubes.value.push(data.value);
     }
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
