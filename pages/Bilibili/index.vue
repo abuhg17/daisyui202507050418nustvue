@@ -28,8 +28,10 @@
             <th>first_frame</th>
             <th>view</th>
             <th>danmaku</th>
-            <th>favorite</th>
+            <th>like</th>
             <th>coin</th>
+            <th>favorite</th>
+            <th>share</th>
           </tr>
         </thead>
         <tbody>
@@ -81,8 +83,10 @@
             </td>
             <td>{{ bilibili.stat.view.toLocaleString() }}</td>
             <td>{{ bilibili.stat.danmaku.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.like.toLocaleString() }}</td>
             <td>{{ bilibili.stat.coin.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.share.toLocaleString() }}</td>
           </tr>
         </tbody>
       </table>
@@ -106,6 +110,7 @@ const arrs = [
   "BV1M6NBeZEVu",
   "BV1XXNiznE4X",
   "BV1pSLgz9EnQ",
+  "BV13j421o7mz",
 ];
 const bilibilis = ref([]);
 const isLoading = ref(true);
