@@ -12,4 +12,9 @@
       >/api/countdown/202507050418</a
     >
   </h3>
+  <h3>
+    <a href="/api/bilibili/BV1BELHzyEMi" class="btn btn-ghost text-xl"
+      >/api/bilibili/BV1BELHzyEMi</a
+    >
+  </h3>
 </template>
