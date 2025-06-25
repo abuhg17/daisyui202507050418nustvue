@@ -69,7 +69,6 @@
               <img
                 v-show="bilibili.pages[0].first_frame"
                 :src="bilibili.pages[0].first_frame"
-                :title="bilibili.title"
                 width="100px"
                 height="auto"
               />
