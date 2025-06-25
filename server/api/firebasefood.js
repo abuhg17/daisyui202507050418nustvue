@@ -1,7 +1,7 @@
 import axios from "axios";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, doc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 export default defineEventHandler(async (event) => {
   const firebaseConfig = {
     apiKey: "AIzaSyBperuUWtP36lO_cRyGYSxuiTkhpy54F_Q",

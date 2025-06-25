@@ -54,14 +54,17 @@
     >
       <NuxtLink to="/" class="btn btn-ghost text-xl">Home page</NuxtLink>
       <NuxtLink to="/about" class="btn btn-ghost text-xl">About page</NuxtLink>
-      <NuxtLink to="/blogs/202507050418" class="btn btn-ghost text-xl"
-        >Blogs 202507050418 page</NuxtLink
+      <NuxtLink to="/blog/202507050418" class="btn btn-ghost text-xl"
+        >Blog page 202507050418</NuxtLink
       >
       <NuxtLink to="/countdown" class="btn btn-ghost text-xl"
         >Countdown page</NuxtLink
       >
       <NuxtLink to="/bilibili" class="btn btn-ghost text-xl"
         >Bilibili page</NuxtLink
+      >
+      <NuxtLink to="/firebasefood" class="btn btn-ghost text-xl"
+        >FirebaseFood page</NuxtLink
       >
     </div>
   </nav>
