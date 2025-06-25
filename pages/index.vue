@@ -17,4 +17,14 @@
       >/api/bilibili/BV1BELHzyEMi</a
     >
   </h3>
+  <h3>
+    <a href="/api/bilibili/BV1Et4y1r7Eu" class="btn btn-ghost text-xl"
+      >/api/bilibili/BV1Et4y1r7Eu</a
+    >
+  </h3>
+  <h3>
+    <a href="/api/bilibili/1111" class="btn btn-ghost text-xl"
+      >/api/bilibili/1111</a
+    >
+  </h3>
 </template>

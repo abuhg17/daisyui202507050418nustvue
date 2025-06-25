@@ -1,8 +1,11 @@
 import axios from "axios";
 
 export default defineEventHandler(async (event) => {
-  const query = getQuery(event);
-  const bvid = query.bvid || "BV1BELHzyEMi";
+  const bvid = event.context.params?.bvid;
+
+  if (!bvid) {
+    return { error: "請提供 bvid 參數" };
+  }
 
   try {
     const res = await axios.get(
@@ -12,13 +15,30 @@ export default defineEventHandler(async (event) => {
       }
     );
 
+    const { pic, title, owner, stat, pages } = res.data.data;
+    const { data } = res.data;
+    const raw = data;
+    const newdata = {};
+    for (const key in raw) {
+      if (typeof raw[key] !== "object") {
+        newdata[key] = raw[key];
+      }
+    }
+
     return {
-      title: res.data.data.title,
-      owner: res.data.data.owner.name,
-      view: res.data.data.stat.view,
-      like: res.data.data.stat.like,
+      pic,
+      title,
+      owner,
+      stat,
+      data: newdata,
+      pages,
     };
   } catch (error) {
-    return { error: "無法取得 Bilibili 資料", detail: error.message };
+    return {
+      error: "無法取得 Bilibili 資料",
+      message: error.message,
+      status: error.response?.status,
+      response: error.response?.data,
+    };
   }
 });

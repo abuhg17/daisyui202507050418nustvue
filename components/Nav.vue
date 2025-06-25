@@ -60,6 +60,9 @@
       <NuxtLink to="/countdown" class="btn btn-ghost text-xl"
         >Countdown page</NuxtLink
       >
+      <NuxtLink to="/bilibili" class="btn btn-ghost text-xl"
+        >Bilibili page</NuxtLink
+      >
     </div>
   </nav>
 </template>
