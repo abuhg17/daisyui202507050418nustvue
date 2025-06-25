@@ -16,81 +16,79 @@
       <div></div>
     </div>
   </div>
-  <div v-if="!isLoading">
-    <div class="overflow-x-auto">
-      <table class="table">
-        <!-- head -->
-        <thead>
-          <tr>
-            <th></th>
-            <th>owner</th>
-            <th>bvid pic</th>
-            <th>first_frame</th>
-            <th>view</th>
-            <th>danmaku</th>
-            <th>like</th>
-            <th>coin</th>
-            <th>favorite</th>
-            <th>share</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(bilibili, idx) in bilibilis">
-            <th>{{ idx + 1 }}</th>
-            <td>
-              <a
-                :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                    bilibili.owner.face
-                  )}`"
-                  :alt="bilibili.owner.name"
-                  :title="bilibili.owner.name"
-                  width="100px"
-                  height="auto"
-                />
-              </a>
-            </td>
-            <td>
-              <a
-                :href="`https://www.bilibili.com/video/${bilibili.data.bvid}`"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                    bilibili.pic
-                  )}`"
-                  :alt="bilibili.title"
-                  :title="bilibili.title"
-                  width="100px"
-                  height="auto"
-                />
-              </a>
-            </td>
-            <td>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>owner</th>
+          <th>bvid pic</th>
+          <th>first_frame</th>
+          <th>view</th>
+          <th>danmaku</th>
+          <th>like</th>
+          <th>coin</th>
+          <th>favorite</th>
+          <th>share</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(bilibili, idx) in bilibilis">
+          <th>{{ idx + 1 }}</th>
+          <td>
+            <a
+              :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
-                v-show="bilibili.pages[0].first_frame"
                 :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
-                  bilibili.pages[0].first_frame
+                  bilibili.owner.face
                 )}`"
+                :alt="bilibili.owner.name"
+                :title="bilibili.owner.name"
                 width="100px"
                 height="auto"
               />
-            </td>
-            <td>{{ bilibili.stat.view.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.danmaku.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.like.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.coin.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
-            <td>{{ bilibili.stat.share.toLocaleString() }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </a>
+          </td>
+          <td>
+            <a
+              :href="`https://www.bilibili.com/video/${bilibili.data.bvid}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
+                  bilibili.pic
+                )}`"
+                :alt="bilibili.title"
+                :title="bilibili.title"
+                width="100px"
+                height="auto"
+              />
+            </a>
+          </td>
+          <td>
+            <img
+              v-show="bilibili.pages[0].first_frame"
+              :src="`/api/bilibili/proxyimg?url=${encodeURIComponent(
+                bilibili.pages[0].first_frame
+              )}`"
+              width="100px"
+              height="auto"
+            />
+          </td>
+          <td>{{ bilibili.stat.view.toLocaleString() }}</td>
+          <td>{{ bilibili.stat.danmaku.toLocaleString() }}</td>
+          <td>{{ bilibili.stat.like.toLocaleString() }}</td>
+          <td>{{ bilibili.stat.coin.toLocaleString() }}</td>
+          <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
+          <td>{{ bilibili.stat.share.toLocaleString() }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 <script setup>
