@@ -91,6 +91,7 @@
 </template>
 <script setup>
 const arrs = [
+  "BV1iZLJzuE6S",
   "BV1BELHzyEMi",
   "BV1Et4y1r7Eu",
   "BV1rSNvzeEPt",
@@ -103,29 +104,8 @@ const arrs = [
   "BV1a5E1zLE2u",
   "BV1WmCpYHE5C",
   "BV1M6NBeZEVu",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
-  "",
+  "BV1XXNiznE4",
+  "BV1pSLgz9EnQ",
 ];
 const bilibilis = ref([]);
 const isLoading = ref(true);
