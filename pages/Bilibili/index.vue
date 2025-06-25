@@ -17,46 +17,70 @@
     </div>
   </div>
   <div v-if="!isLoading">
-    <div v-if="!isLoading" class="grid grid-cols-5 gap-4">
-      <div v-for="bilibili in bilibilis">
-        <p>
-          <a
-            :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              :src="bilibili.owner.face"
-              :alt="bilibili.owner.name"
-              :title="bilibili.owner.name"
-              width="100px"
-              height="auto"
-            />
-          </a>
-        </p>
-        <p>
-          <a
-            :href="`https://www.bilibili.com/video/${bilibili.data.bvid}`"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              :src="bilibili.pic"
-              :alt="bilibili.title"
-              :title="bilibili.title"
-              width="100px"
-              height="auto"
-            />
-            <img
-              v-show="bilibili.pages[0].first_frame"
-              :src="bilibili.pages[0].first_frame"
-              :title="bilibili.title"
-              width="100px"
-              height="auto"
-            />
-          </a>
-        </p>
-      </div>
+    <div class="overflow-x-auto">
+      <table class="table">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th></th>
+            <th>owner</th>
+            <th>bvid pic</th>
+            <th>first_frame</th>
+            <th>view</th>
+            <th>danmaku</th>
+            <th>favorite</th>
+            <th>coin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(bilibili, idx) in bilibilis">
+            <th>{{ idx + 1 }}</th>
+            <td>
+              <a
+                :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  :src="bilibili.owner.face"
+                  :alt="bilibili.owner.name"
+                  :title="bilibili.owner.name"
+                  width="100px"
+                  height="auto"
+                />
+              </a>
+            </td>
+            <td>
+              <a
+                :href="`https://www.bilibili.com/video/${bilibili.data.bvid}`"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  :src="bilibili.pic"
+                  :alt="bilibili.title"
+                  :title="bilibili.title"
+                  width="100px"
+                  height="auto"
+                />
+              </a>
+            </td>
+            <td>
+              <img
+                v-show="bilibili.pages[0].first_frame"
+                :src="bilibili.pages[0].first_frame"
+                :title="bilibili.title"
+                width="100px"
+                height="auto"
+              />
+            </td>
+            <td>{{ bilibili.stat.view.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.danmaku.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.favorite.toLocaleString() }}</td>
+            <td>{{ bilibili.stat.coin.toLocaleString() }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>

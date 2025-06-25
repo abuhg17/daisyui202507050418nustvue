@@ -2,7 +2,7 @@ git init
 
 git add .
  
-git commit -m "202507050418 loading.io"
+git commit -m "202507050418 owner bvid pic first_frame view danmaku favorite coin"
 
 git remote add origin https://github.com/abuhg17/daisyui202507050418nustvue.git
 
