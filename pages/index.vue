@@ -1,5 +1,19 @@
 <template>
   <h1>This is Home Page.</h1>
+  <h3>
+    <a
+      href="daisyui202507050418nustvue.vercel.app"
+      class="btn btn-ghost text-xl"
+      >daisyui202507050418nustvue.vercel.app</a
+    >
+  </h3>
+  <h3>
+    <a
+      href="https://tourmaline-druid-b51e74.netlify.app/"
+      class="btn btn-ghost text-xl"
+      >https://tourmaline-druid-b51e74.netlify.app/</a
+    >
+  </h3>
   <h2>API Test:</h2>
   <h3><a href="/api/hello" class="btn btn-ghost text-xl">/api/hello</a></h3>
   <h3>
