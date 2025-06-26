@@ -2,7 +2,8 @@ import axios from "axios";
 
 export default defineEventHandler(async (event) => {
   const cid = event.context.params?.cid;
-  const apikey = "AIzaSyARxObGJgbWeVUC2Jhal6ic-XbdJUfI-h0";
+  // const apikey = "AIzaSyARxObGJgbWeVUC2Jhal6ic-XbdJUfI-h0";
+  const apikey = "AIzaSyCoQlxwpekkNagIuYiBpJLDlWr2BjmoGXw";
 
   if (!cid) {
     return { error: "請提供 cid 參數" };

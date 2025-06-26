@@ -50,8 +50,13 @@
       </thead>
       <tbody>
         <tr v-for="(youtube, idx) in youtubes">
-          <td>{{ idx + 1 }}</td>
-          <td v-if="youtube.channel && 'items' in youtube.channel">
+          <td v-if="idx + 1 === 75">🎯2025/07/05 04:18🎯</td>
+          <td v-else-if="idx + 1 === 37">🀄高考三級資訊處理榜首🀄</td>
+          <td v-else-if="idx + 1 === 33">
+            🛡️⚔️🔥<br />ww3 2029/09/15~2032/02/20 888 days<br />🔥⚔️🛡️
+          </td>
+          <td v-else>{{ idx + 1 }}</td>
+          <td>
             <a
               :href="`https://www.youtube.com/channel/${youtube.channel.items.id}`"
               target="_blank"
@@ -65,9 +70,6 @@
                 height="auto"
               />
             </a>
-          </td>
-          <td v-else>
-            <span class="text-red-600">這個頻道無法觀看。</span>
           </td>
           <td>
             <a
@@ -94,39 +96,82 @@
 </template>
 <script setup>
 const arrs = [
+  "hIjIt3yU8aA",
+  "b1YbLznN9AE",
+  "kmMOqTiUhAY",
+  "-_lYCBqyNYo",
+  "BVMjA_dCE6c",
+  "-7h--XTyj8A",
+  "jp6Rhf73neY",
+  "Ey0qVzG8_vU",
+  "s94P7jmEspQ",
   "WS3sGVgkOZk",
   "KqKVBSHtCJU",
   "5zcqr8dxgGw",
-  "zy1sDJcwLw8",
+  "u1rZFCNfR2I",
   "hnl-44mXdKI",
-  "9eGkn0jhS8A",
-  "Ro8QCl_TwAQ",
+  "wA9kWUP65jo",
   "_ckik6l8LGE",
-  "h7LtLEgcHYc",
+  "uVjKn92u35A",
   "Hv8K31xVlGI",
   "iiriaDJuoXA",
   "1UwmdF9MPSs",
   "tXAr4L0Txhc",
   "cTsgN88eFao",
   "dOjrpAxIpOc",
-  "Sj-Et6SZ3Pg",
   "SKx1sDSdlDc",
   "Q_b2q2psDAE",
   "WH297WZaU7M",
   "qHjGhG4aJ_k",
-  "rgfcluMVE40",
+  "e1AWBS-RS-I",
   "wW0fZhdjrGM",
   "bBA95gwfcXA",
-  "uuKBkpmti9M",
   "7PfL5w6selY",
-  "7jPFzlxj3qQ",
   "k6pHuMP6ObU",
+  "7jPFzlxj3qQ",
+  "LGpQs_dOxYw",
   "Ftw4vkl_V0s",
-  "mfq_mX6s3U4",
-  "wA9kWUP65jo",
-  "qLZ4P1x3jPA",
   "FZ8N_370MPE",
+  "qLZ4P1x3jPA",
+  "L0VvGDA2pOc",
   "OnnI9rLy7R4",
+  "ASdEPhr7zVg",
+  "8UYEwfodabA",
+  "nmq3I-8Izus",
+  "2egSi1HBrxg",
+  "uKBI1Ea8VO0",
+  "Z-h6O_2IYRo",
+  "gNypi17ruog",
+  "Yt9-vuUy1gM",
+  "Hp7GR9TSd4w",
+  "jtRU5ZhFdyc",
+  "54NMP1D9mZk",
+  "7LDeFRHnjAA",
+  "mVW8uH2k7So",
+  "oYFva7DxBdo",
+  "oPyp6fDcpdc",
+  "vGRE-aBmIPg",
+  "wFtZE0eL6ts",
+  "bTue_88ef6o",
+  "E15_2rMaWVM",
+  "sLllWRwLQrg",
+  "VzR3mI6X84E",
+  "B3Bt0DC5svw",
+  "7bXgLbEOoFg",
+  "FaNxTh50UH8",
+  "Td8YEuqyRxw",
+  "u2SI5wgNmxg",
+  "Y8BDihOv7Go",
+  "1vLoO_DonRE",
+  "XK0KBZKvts4",
+  "gIRB3y_8hRc",
+  "fkp8CqZrkW4",
+  "F9YJ2YB3a3E",
+  "Ihi1mhMYLR0",
+  "IQ8ZjEFW6Cw",
+  "K6OPfeuwB3c",
+  "WQuRLmsYWIc",
+  "-4ADGW7TE0Q",
 ];
 const youtubes = ref([]);
 const isLoading = ref(true);

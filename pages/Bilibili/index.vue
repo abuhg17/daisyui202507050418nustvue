@@ -54,8 +54,12 @@
       </thead>
       <tbody>
         <tr v-for="(bilibili, idx) in bilibilis">
-          {{}}
-          <td>{{ idx + 1 }}</td>
+          <td v-if="idx + 1 === 75">🎯2025/07/05 04:18🎯</td>
+          <td v-else-if="idx + 1 === 37">🀄高考三級資訊處理榜首🀄</td>
+          <td v-else-if="idx + 1 === 33">
+            🛡️⚔️🔥<br />ww3 2029/09/15~2032/02/20 888 days<br />🔥⚔️🛡️
+          </td>
+          <td v-else>{{ idx + 1 }}</td>
           <td>
             <a
               :href="`https://space.bilibili.com/${bilibili.owner.mid}/upload/video`"
@@ -119,7 +123,7 @@ const arrs = [
   "BV1rSNvzeEPt",
   "BV1RkT2zREai",
   "BV1JtNXzkEFN",
-  "BV1ogJhz1EbJ",
+  "BV1Dc2VYkEce",
   "BV1VpTpzHEcT",
   "BV1PpZ2YoEtU",
   "BV1WiNkz4EZM",
@@ -144,18 +148,19 @@ const arrs = [
   "BV1yQfWYaEVo",
   "BV1ivM8zJEUg",
   "BV1y8KWzrEsx",
+  "BV1YGMmzFEXv",
+  "BV1uEyuYZEYW",
   "BV1ud4y1Q7Dd",
-  "BV1rBdmYmEHk",
   "BV1R5N9zgE1t",
   "BV1QdfnYwEFc",
-  "BV1AGfWYFEaY",
-  "BV1TtKVe9EHH",
+  "BV17tNXzkEDy",
   "BV1DFfWYTEz3",
   "BV1FqfnYLE1v",
   "BV1K2jnz8E8Q",
   "BV1cvfpYsEiJ",
   "BV12BNdzaEo1",
   "BV1Fv4y1g7Cc",
+  "BV1AGfWYFEaY",
   "BV1qTTTzjE5T",
   "BV1qaTdzWELF",
   "BV1UeK8zAEgM",
@@ -182,9 +187,11 @@ const arrs = [
   "BV16PMSzGETR",
   "BV1hrKVzWEsP",
   "BV1SAMtzYE3M",
-  "BV1S6MAzwEY5",
   "BV18V4y1j7ja",
   "BV13W4y1U7NP",
+  "BV1vFKbzqED1",
+  "BV1mM4m167tL",
+  "BV1MgEjzxEfv",
 ];
 const bilibilis = ref([]);
 const isLoading = ref(true);
