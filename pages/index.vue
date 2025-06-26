@@ -9,7 +9,7 @@
   </h3>
   <h3>
     <a
-      href="daisyui202507050418nustvue.netlify.app/"
+      href="https://daisyui202507050418nustvue.netlify.app/"
       class="btn btn-ghost text-xl"
       >daisyui202507050418nustvue.netlify.app</a
     >
