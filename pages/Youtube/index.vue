@@ -51,18 +51,78 @@
       <tbody>
         <tr v-for="(youtube, idx) in youtubes">
           <td>{{ idx + 1 }}</td>
-          <td>{{ youtube.snippet.title }}</td>
-          <td>{{ youtube.snippet.thumbnails.standard }}</td>
-          <td>{{ youtube.statistics.viewCount }}</td>
-          <td>{{ youtube.statistics.likeCount }}</td>
-          <td>{{ youtube.snippet.publishedAt }}</td>
+          <td v-if="youtube.channel && 'items' in youtube.channel">
+            <a
+              :href="`https://www.youtube.com/channel/${youtube.channel.items.id}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                :src="youtube.channel.items.snippet.thumbnails.medium.url"
+                :alt="youtube.channel.items.snippet.title"
+                :title="youtube.channel.items.snippet.title"
+                width="100px"
+                height="auto"
+              />
+            </a>
+          </td>
+          <td v-else>
+            <span class="text-red-600">這個頻道無法觀看。</span>
+          </td>
+          <td>
+            <a
+              :href="`https://www.youtube.com/watch?v=${youtube.items.id}`"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                :src="youtube.items.snippet.thumbnails.medium.url"
+                :alt="youtube.items.snippet.title"
+                :title="youtube.items.snippet.title"
+                width="100px"
+                height="auto"
+              />
+            </a>
+          </td>
+          <td>{{ youtube.items.statistics.viewCount }}</td>
+          <td>{{ youtube.items.statistics.likeCount }}</td>
+          <td>{{ youtube.items.snippet.publishedAt }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 <script setup>
-const arrs = ["WS3sGVgkOZk", "KqKVBSHtCJU", "5zcqr8dxgGw"];
+const arrs = [
+  "WS3sGVgkOZk",
+  "KqKVBSHtCJU",
+  "5zcqr8dxgGw",
+  "zy1sDJcwLw8",
+  "hnl-44mXdKI",
+  "9eGkn0jhS8A",
+  "Ro8QCl_TwAQ",
+  "_ckik6l8LGE",
+  "h7LtLEgcHYc",
+  "Hv8K31xVlGI",
+  "iiriaDJuoXA",
+  "1UwmdF9MPSs",
+  "tXAr4L0Txhc",
+  "cTsgN88eFao",
+  "dOjrpAxIpOc",
+  "Sj-Et6SZ3Pg",
+  "SKx1sDSdlDc",
+  "Q_b2q2psDAE",
+  "WH297WZaU7M",
+  "qHjGhG4aJ_k",
+  "rgfcluMVE40",
+  "wW0fZhdjrGM",
+  "bBA95gwfcXA",
+  "uuKBkpmti9M",
+  "7PfL5w6selY",
+  "7jPFzlxj3qQ",
+  "k6pHuMP6ObU",
+  "Ftw4vkl_V0s",
+];
 const youtubes = ref([]);
 const isLoading = ref(true);
 onMounted(async () => {
@@ -70,6 +130,14 @@ onMounted(async () => {
     const { data } = await useFetch(`/api/youtube/${arr}`);
     if (data.value) {
       youtubes.value.push(data.value);
+      const channelId = data.value.items.snippet.channelId;
+      const { data: channeldata } = await useFetch(
+        `/api/youtube/channel/${channelId}`
+      );
+      youtubes.value[youtubes.value.length - 1] = {
+        ...youtubes.value[youtubes.value.length - 1],
+        channel: channeldata.value,
+      };
     }
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
