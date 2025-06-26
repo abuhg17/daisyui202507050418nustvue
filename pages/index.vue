@@ -9,9 +9,9 @@
   </h3>
   <h3>
     <a
-      href="https://tourmaline-druid-b51e74.netlify.app/"
+      href="daisyui202507050418nustvue.netlify.app/"
       class="btn btn-ghost text-xl"
-      >tourmaline-druid-b51e74.netlify.app</a
+      >daisyui202507050418nustvue.netlify.app</a
     >
   </h3>
   <h2>API Test:</h2>
