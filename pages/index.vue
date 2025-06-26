@@ -2,7 +2,7 @@
   <h1>This is Home Page.</h1>
   <h3>
     <a
-      href="daisyui202507050418nustvue.vercel.app"
+      href="https://daisyui202507050418nustvue.vercel.app"
       class="btn btn-ghost text-xl"
       >daisyui202507050418nustvue.vercel.app</a
     >
@@ -11,7 +11,7 @@
     <a
       href="https://tourmaline-druid-b51e74.netlify.app/"
       class="btn btn-ghost text-xl"
-      >https://tourmaline-druid-b51e74.netlify.app/</a
+      >tourmaline-druid-b51e74.netlify.app</a
     >
   </h3>
   <h2>API Test:</h2>
