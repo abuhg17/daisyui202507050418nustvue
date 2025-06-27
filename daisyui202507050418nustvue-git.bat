@@ -2,7 +2,7 @@ git init
 
 git add .
  
-git commit -m "2025 0705 0418 Last seven days next seven days The Law of Cause and Effect"
+git commit -m "2025 0705 0418 next seven days The Law of Cause and Effect clear cache"
 
 git remote add origin https://github.com/abuhg17/daisyui202507050418nustvue.git
 

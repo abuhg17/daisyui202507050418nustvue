@@ -168,7 +168,6 @@ const youtubes = ref([]);
 const isLoading = ref(false);
 const loadedCount = ref(0);
 const totalCount = ref(arrs.length);
-
 const MAX_BATCH_SIZE = 50;
 
 const CACHE_KEY = "youtube-videos";
@@ -180,7 +179,19 @@ function getCache() {
     const raw = localStorage.getItem(CACHE_KEY);
     const time = localStorage.getItem(CACHE_TIMESTAMP_KEY);
     if (!raw || !time) return null;
-    if (Date.now() - parseInt(time) > CACHE_EXPIRATION_MS) return null;
+
+    const cacheTime = parseInt(time);
+
+    // ✅ 清除 2025/07/05 04:18（台灣時間）之前的快取
+    const FORCE_CLEAR_BEFORE = new Date("2025-07-05T04:18:00+08:00").getTime();
+    if (cacheTime < FORCE_CLEAR_BEFORE) {
+      localStorage.removeItem(CACHE_KEY);
+      localStorage.removeItem(CACHE_TIMESTAMP_KEY);
+      return null;
+    }
+
+    if (Date.now() - cacheTime > CACHE_EXPIRATION_MS) return null;
+
     return JSON.parse(raw);
   } catch {
     return null;
@@ -197,7 +208,6 @@ async function loadData() {
   youtubes.value = [];
   loadedCount.value = 0;
 
-  // 嘗試讀快取
   const cached = getCache();
   if (cached && Array.isArray(cached) && cached.length) {
     youtubes.value = cached;
@@ -206,36 +216,29 @@ async function loadData() {
     return;
   }
 
-  // 無快取或快取過期，透過 API 批次抓資料
   for (let start = 0; start < arrs.length; start += MAX_BATCH_SIZE) {
     const batch = arrs.slice(start, start + MAX_BATCH_SIZE);
 
     try {
       const { data } = await useFetch(`/api/youtube/videos/${batch.join(",")}`);
 
-      if (!data.value?.items || data.value.items.length === 0) {
+      if (!data.value?.items?.length) {
         loadedCount.value += batch.length;
         continue;
       }
 
-      // 取得頻道ID不重複
       const channelIds = [
         ...new Set(data.value.items.map((v) => v.snippet.channelId)),
       ];
-
-      // 批次取得頻道資料
       const { data: channelData } = await useFetch(
         `/api/youtube/channel/${channelIds.join(",")}`
       );
 
       const channelMap = new Map();
-      if (channelData.value?.items?.length) {
-        channelData.value.items.forEach((c) => {
-          channelMap.set(c.id, c);
-        });
-      }
+      channelData.value?.items?.forEach((c) => {
+        channelMap.set(c.id, c);
+      });
 
-      // 合併影片與頻道資料
       data.value.items.forEach((videoItem) => {
         youtubes.value.push({
           items: videoItem,
@@ -249,12 +252,10 @@ async function loadData() {
       loadedCount.value += batch.length;
     }
 
-    // 避免 API 速率過快，延遲 500ms
     await new Promise((r) => setTimeout(r, 500));
   }
 
   setCache(youtubes.value);
-
   isLoading.value = false;
 }
 
