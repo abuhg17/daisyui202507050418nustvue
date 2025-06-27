@@ -183,7 +183,9 @@ function getCache() {
     const cacheTime = parseInt(time);
 
     // ✅ 清除 2025/07/05 04:18（台灣時間）之前的快取
-    const FORCE_CLEAR_BEFORE = new Date("2025-07-05T04:18:00+08:00").getTime();
+    // const FORCE_CLEAR_BEFORE = new Date("2025-07-05T04:18:00+08:00").getTime();
+    const FORCE_CLEAR_BEFORE = new Date("2025-06-27T17:33:00+08:00").getTime();
+
     if (cacheTime < FORCE_CLEAR_BEFORE) {
       localStorage.removeItem(CACHE_KEY);
       localStorage.removeItem(CACHE_TIMESTAMP_KEY);
