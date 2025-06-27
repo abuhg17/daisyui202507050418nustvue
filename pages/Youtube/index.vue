@@ -174,6 +174,7 @@ const CACHE_KEY = "youtube-videos";
 const CACHE_TIMESTAMP_KEY = "youtube-videos-timestamp";
 const CACHE_EXPIRATION_MS = 1000 * 60 * 60 * 12; // 12 小時
 
+// 快取讀取，會檢查過期與版本
 function getCache() {
   try {
     const raw = localStorage.getItem(CACHE_KEY);
@@ -181,9 +182,6 @@ function getCache() {
     if (!raw || !time) return null;
 
     const cacheTime = parseInt(time);
-
-    // ✅ 清除 2025/07/05 04:18（台灣時間）之前的快取
-    // const FORCE_CLEAR_BEFORE = new Date("2025-07-05T04:18:00+08:00").getTime();
     const FORCE_CLEAR_BEFORE = new Date("2025-06-27T21:33:00+08:00").getTime();
 
     if (cacheTime < FORCE_CLEAR_BEFORE) {
@@ -194,7 +192,13 @@ function getCache() {
 
     if (Date.now() - cacheTime > CACHE_EXPIRATION_MS) return null;
 
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return null;
+
+    // 快取影片數是否合理，不合理清除
+    if (parsed.length < totalCount.value * 0.5) return null;
+
+    return parsed;
   } catch {
     return null;
   }
@@ -205,13 +209,28 @@ function setCache(data) {
   localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
 }
 
+// API 請求，帶重試
+async function fetchWithRetry(url, maxRetries = 3, delayMs = 500) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const res = await useFetch(url);
+      if (!res.data.value) throw new Error("無資料");
+      return res.data.value;
+    } catch (e) {
+      console.warn(`第${attempt}次請求失敗: ${url}`, e);
+      if (attempt === maxRetries) throw e;
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
+}
+
 async function loadData() {
   isLoading.value = true;
   youtubes.value = [];
   loadedCount.value = 0;
 
   const cached = getCache();
-  if (cached && Array.isArray(cached) && cached.length) {
+  if (cached && cached.length) {
     youtubes.value = cached;
     loadedCount.value = cached.length;
     isLoading.value = false;
@@ -222,42 +241,53 @@ async function loadData() {
     const batch = arrs.slice(start, start + MAX_BATCH_SIZE);
 
     try {
-      const { data } = await useFetch(`/api/youtube/videos/${batch.join(",")}`);
+      const data = await fetchWithRetry(
+        `/api/youtube/videos/${batch.join(",")}`
+      );
 
-      if (!data.value?.items?.length) {
-        loadedCount.value += batch.length;
+      if (!data.items || !data.items.length) {
+        console.warn(`批次無影片資料: ${start} ~ ${start + batch.length - 1}`);
+        // 仍更新 loadedCount 但不加入影片數量
+        loadedCount.value += 0;
         continue;
       }
 
       const channelIds = [
-        ...new Set(data.value.items.map((v) => v.snippet.channelId)),
+        ...new Set(data.items.map((v) => v.snippet.channelId)),
       ];
-      const { data: channelData } = await useFetch(
+      const channelData = await fetchWithRetry(
         `/api/youtube/channel/${channelIds.join(",")}`
       );
 
       const channelMap = new Map();
-      channelData.value?.items?.forEach((c) => {
+      channelData.items?.forEach((c) => {
         channelMap.set(c.id, c);
       });
 
-      data.value.items.forEach((videoItem) => {
+      data.items.forEach((videoItem) => {
         youtubes.value.push({
           items: videoItem,
           channel: channelMap.get(videoItem.snippet.channelId) || null,
         });
       });
 
-      loadedCount.value += batch.length;
+      // 實際新增的影片數量
+      loadedCount.value = youtubes.value.length;
+
+      // 每批結束時，先更新快取，避免中途失敗導致下次還讀到不完整資料
+      setCache(youtubes.value);
     } catch (error) {
-      console.error("載入錯誤", error);
-      loadedCount.value += batch.length;
+      console.error(
+        `批次讀取失敗: ${start} ~ ${start + batch.length - 1}`,
+        error
+      );
+      // 這批跳過，不增加 loadedCount
     }
 
+    // 稍微延遲避免 API 速率限制
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  setCache(youtubes.value);
   isLoading.value = false;
 }
 
