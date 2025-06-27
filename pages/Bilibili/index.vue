@@ -214,7 +214,7 @@ const CACHE_TTL = 1000 * 60 * 60 * 24; // 1 天
 
 // ✅ 清除 2025/07/05 04:18（台灣時間）之前的快取
 // const FORCE_CLEAR_BEFORE_TW = new Date("2025-07-25T04:18:00+08:00").getTime();
-const FORCE_CLEAR_BEFORE_TW = new Date("2025-06-27T18:33:00+08:00").getTime();
+const FORCE_CLEAR_BEFORE_TW = new Date("2025-06-27T21:33:00+08:00").getTime();
 
 function arrsToKey(arr) {
   return JSON.stringify(arr);
