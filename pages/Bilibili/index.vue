@@ -123,6 +123,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+
 const arrs = [
   "BV1iZLJzuE6S",
   "BV1BELHzyEMi",
@@ -210,6 +211,7 @@ const CACHE_KEY = "bilibili_cache_data";
 const CACHE_TIME_KEY = "bilibili_cache_time";
 const CACHE_ARRS_KEY = "bilibili_cache_arrs_key";
 const CACHE_TTL = 1000 * 60 * 60 * 24; // 1 天
+const FORCE_CLEAR_BEFORE_TW = new Date("2025-06-27T17:33:00+08:00").getTime();
 
 function arrsToKey(arr) {
   return JSON.stringify(arr);
@@ -222,8 +224,15 @@ function getCache() {
     const arrsKey = localStorage.getItem(CACHE_ARRS_KEY);
     if (!raw || !time || !arrsKey) return null;
     if (arrsKey !== arrsToKey(arrs)) return null;
-    const now = Date.now();
-    if (now - parseInt(time) > CACHE_TTL) return null;
+
+    const parsedTime = parseInt(time);
+    if (isNaN(parsedTime)) return null;
+
+    // 強制清除 2025/06/28 前的快取
+    if (parsedTime < FORCE_CLEAR_BEFORE_TW) return null;
+
+    if (Date.now() - parsedTime > CACHE_TTL) return null;
+
     return JSON.parse(raw);
   } catch {
     return null;
@@ -241,7 +250,6 @@ async function loadData() {
   loadedCount.value = 0;
   bilibilis.value = [];
 
-  // 先讀快取
   const cache = getCache();
   if (cache && Array.isArray(cache) && cache.length) {
     bilibilis.value = cache;
@@ -250,7 +258,6 @@ async function loadData() {
     return;
   }
 
-  // 逐個請求
   for (let i = 0; i < arrs.length; i++) {
     const bvid = arrs[i];
     try {
