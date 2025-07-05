@@ -56,6 +56,7 @@
       ]"
     >
       <NuxtLink to="/" class="btn btn-ghost text-xl">Home page</NuxtLink>
+      <NuxtLink to="/food" class="btn btn-ghost text-xl">Food page</NuxtLink>
       <NuxtLink to="/about" class="btn btn-ghost text-xl">About page</NuxtLink>
       <NuxtLink to="/blog/202507050418" class="btn btn-ghost text-xl"
         >Blog page 202507050418</NuxtLink

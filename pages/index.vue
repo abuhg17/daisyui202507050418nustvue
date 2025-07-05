@@ -88,4 +88,17 @@
       >youtube channel UCRy~</a
     >
   </h3>
+  <h3>
+    <a href="/api/food/" class="btn btn-ghost text-xl">food</a>
+  </h3>
+  <h3>
+    <a href="/api/food/name/超級飯糰" class="btn btn-ghost text-xl"
+      >food name 超級飯糰</a
+    >
+  </h3>
+  <h3>
+    <a href="/api/food/shop/超二代飯糰" class="btn btn-ghost text-xl"
+      >food shop 超二代飯糰</a
+    >
+  </h3>
 </template>

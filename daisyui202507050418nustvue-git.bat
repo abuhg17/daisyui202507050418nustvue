@@ -2,7 +2,7 @@ git init
 
 git add .
  
-git commit -m "food"
+git commit -m "food 3"
 
 git remote add origin https://github.com/abuhg17/daisyui202507050418nustvue.git
 

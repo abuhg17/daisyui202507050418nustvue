@@ -139,7 +139,7 @@ const error = ref("");
 const newFood = ref({
   name: "",
   amount: 1,
-  price: 0,
+  price: 1,
   shop: "",
   todate: "",
   photo: null,
@@ -266,10 +266,10 @@ async function createFood() {
 
     // 構建要傳遞給 createDocument 的數據物件
     const documentData = {
-      name: newFood.value.name,
+      name: newFood.value.name.trim(),
       amount: newFood.value.amount,
       price: newFood.value.price,
-      shop: newFood.value.shop,
+      shop: newFood.value.shop.trim(),
       todate: newFood.value.todate,
     };
 
