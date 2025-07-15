@@ -48,7 +48,11 @@ const fetchData = async () => {
   error.value = null;
   try {
     const res = await fetch(
-      "https://fastapitsaopaofenghsiung2025.up.railway.app/subscription"
+      "https://fastapitsaopaofenghsiung2025.up.railway.app/subscription",
+      {
+        method: "GET",
+        mode: "cors",
+      }
     );
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     data.value = await res.json();
